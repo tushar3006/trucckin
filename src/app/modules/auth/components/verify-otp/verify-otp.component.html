@@ -1,0 +1,20 @@
+<div class="verifyOtp">
+  <h4 class="light">Please enter the OTP received on your phone number provided.</h4>
+  <div>
+    <form [formGroup]="otpForm"
+      (ngSubmit)="onVerifyotp()">
+      <mat-form-field>
+        <input matInput
+          formControlName="otp"
+          placeholder="Please enter OTP">
+      </mat-form-field>
+
+
+      <button mat-button
+        type="submit"
+        color="primary">Submit</button>
+
+    </form>
+
+  </div>
+</div>

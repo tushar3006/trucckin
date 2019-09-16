@@ -1,0 +1,21 @@
+<div class="truck-details">
+  <h1 class="lighter"> <img src="/assets/images/back.png" /> Truck Requirement Details</h1>
+
+  <h6 class="text-grey">Select type of Truck</h6>
+
+  <form [formGroup]="truckDetailsForm">
+
+    <h6 class="text-grey">Select no. of trucks required</h6>
+    <div>
+      <mat-form-field>
+        <input matInput
+          formControlName="dropoff">
+      </mat-form-field>
+    </div>
+    <button mat-button
+      color="primary">Next</button>
+  </form>
+
+
+
+</div>

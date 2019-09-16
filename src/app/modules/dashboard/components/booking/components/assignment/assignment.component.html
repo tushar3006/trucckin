@@ -1,0 +1,32 @@
+<div class="assignment">
+  <h1> <img src="/assets/images/back.png" /> Add assignment</h1>
+
+  <h6 class="text-grey">Where do you wish to send your shipment?</h6>
+
+  <form [formGroup]="bookingForm">
+    <div class="full-width">
+      <mat-form-field>
+        <input #pickup
+          matInput
+          formControlName="pickup"
+          placeholder="Pickup Location">
+      </mat-form-field>
+    </div>
+    <div class="full-width">
+      <mat-form-field>
+        <input #dropoff
+          matInput
+          formControlName="dropoff"
+          placeholder="Dropoff Location">
+      </mat-form-field>
+    </div>
+
+
+    <button mat-button
+      (click)="updateAddress()"
+      color="primary">Next</button>
+  </form>
+
+
+
+</div>

@@ -1,0 +1,39 @@
+<div class="login">
+
+  <h1> <span *ngIf="typeConst.FORGOT_PASS === activePath"> <img src="/assets/images/back.png"
+        class="back" /> </span> Sign In</h1>
+
+
+
+  <app-forgot-password *ngIf="typeConst.FORGOT_PASS === activePath"></app-forgot-password>
+  <div *ngIf="typeConst.LOGIN === activePath">
+    <h4>Welcome</h4>
+    <h4>Please login to your account</h4>
+    <div class="loginForm">
+      <form [formGroup]="loginForm"
+        (ngSubmit)="onLogin()">
+        <mat-form-field>
+          <input matInput
+            formControlName="email"
+            placeholder="Login">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput
+            formControlName="password"
+            placeholder="Password">
+        </mat-form-field>
+
+        <div class="forgot-pass"><a>Forgot Password?</a></div>
+
+        <button mat-button
+          type="submit"
+          color="primary">Sign In</button>
+
+      </form>
+
+    </div>
+  </div>
+  <div class="signup">Don't have an account? <a>Sign Up</a></div>
+
+</div>

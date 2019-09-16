@@ -1,0 +1,35 @@
+.booking {
+  background: #F2F2F3;
+  height: calc(100% - 6rem);
+  width: 100%;
+  box-sizing: border-box;
+
+  .container {
+    padding: 1rem 4rem;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 50%;
+
+  }
+
+  .create {
+    padding: 0 10rem;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  agm-map {
+    height: 100%;
+  }
+
+  .card {
+    color: #ef6c00;
+    // justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+}

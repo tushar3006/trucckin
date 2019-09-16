@@ -1,0 +1,52 @@
+.login {
+  height: 80%;
+
+  h1 {
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: 0.3rem 0;
+    font-weight: 400;
+  }
+
+  .back {
+    margin-right: 1rem;
+  }
+
+  .loginForm {
+    padding: 3rem 0;
+    position: relative;
+    min-height: 15rem;
+  }
+
+  button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+  }
+
+  .forgot-pass,
+  .signup {
+    text-align: center;
+    font-size: 0.8rem;
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .signup {
+    position: absolute;
+    bottom: 2rem;
+    text-align: center;
+    width: 100%;
+    left: 0;
+  }
+}

@@ -1,0 +1,33 @@
+.auth {
+  background: url('/assets/images/bg.png');
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /deep/.mat-form-field {
+    width: 100%;
+  }
+
+  .popup {
+    position: absolute;
+    height: 85%;
+    min-height: 600px;
+    width: 26rem;
+    background: #fff;
+    right: 3rem;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0 0 #c7c7c7;
+    box-sizing: border-box;
+  }
+
+}

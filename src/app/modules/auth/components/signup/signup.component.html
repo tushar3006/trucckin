@@ -1,0 +1,60 @@
+<div class="signup">
+
+  <h1>Sign Up</h1>
+  <!-- <h4>Welcome</h4> -->
+
+  <div *ngIf="typeConst.VERIFY_OTP === activePath">
+    <app-verify-otp></app-verify-otp>
+  </div>
+  <div>
+    <h4>Please Create to your account</h4>
+    <div class="signupForm"
+      *ngIf="typeConst.SIGNUP === activePath">
+
+      <form [formGroup]="signupForm"
+        (ngSubmit)="onLogin()">
+        <mat-form-field>
+          <input matInput
+            formControlName="email"
+            placeholder="Please enter your Email">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput
+            formControlName="password"
+            placeholder="Please enter your Password">
+        </mat-form-field>
+
+        <div class="flex "
+          style="flex-direction: row">
+          <div class="mat-form-field phone ">
+            <international-phone-number class="mat-form-field-infix-custom phone-country"
+              formControlName="countryCode"
+              placeholder="Phone number"
+              [maxlength]="20"
+              [required]="true"
+              name="phone_number"></international-phone-number>
+
+          </div>
+
+          <mat-form-field class="fl-1">
+            <input matInput
+              formControlName="phoneNo"
+              placeholder="Please enter your Phone ">
+          </mat-form-field>
+        </div>
+
+
+
+
+        <button mat-button
+          type="submit"
+          color="primary">Sign Up</button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+</div>

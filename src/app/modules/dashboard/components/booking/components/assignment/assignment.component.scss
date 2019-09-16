@@ -1,0 +1,8 @@
+.assignment {
+  display: flex;
+  flex-direction: column;
+
+  /deep/.mat-form-field {
+    width: 100%;
+  }
+}

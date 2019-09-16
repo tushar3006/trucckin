@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto&display=swap');
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-orange);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+.mat-button.mat-primary {
+  background-color: #ef6c00;
+
+  span {
+    color: #fff;
+  }
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+
+
+
+
+
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.fl-1 {
+  flex: 1
+}
+
+
+
+.fl-2 {
+  flex: 1
+}
+
+
+.fl-3 {
+  flex: 1
+}
+
+
+.fl-4 {
+  flex: 1
+}
+
+
+.fl-5 {
+  flex: 1
+}
+
+.light {
+  font-weight: 400;
+}
+
+.lighter {
+  font-weight: 300;
+}
+
+.f-j-a-c {
+  justify-content: center;
+  align-items: center;
+}
+
+
+.text-grey {
+  color: #A1A0AD
+}
+
+.card {
+  width: 26rem;
+  height: 3rem;
+  /* border: 1px solid #4C4B5E; */
+  border-radius: 10px;
+  // margin: 0 1rem;
+  box-shadow: 4px 1px 10px 2px rgba(0, 0, 0, 0.1);
+  color: #000;
+  // padding: 1.6rem;
+  background: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.full-width {
+  width: 100%;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}

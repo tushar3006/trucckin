@@ -1,0 +1,80 @@
+.signup {
+  height: 80%;
+
+  h1 {
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin: 0.3rem 0;
+    font-weight: 400;
+  }
+
+  .signupForm {
+    padding: 3rem 0;
+    position: relative;
+    min-height: 15rem;
+  }
+
+  button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+  }
+
+  .forgot-pass {
+    text-align: center;
+    font-size: 0.8rem;
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .phone {
+    padding: 1.4375em 0;
+    width: 3rem;
+
+    .phone-country {
+      /deep/input {
+        width: 0 !important;
+      }
+    }
+  }
+
+  .mat-form-field-infix-custom {
+
+    /deep/.dropbtn {
+      span:nth-child(1) {
+        margin-right: 0.3rem;
+      }
+
+      .arrow-down {
+        margin-top: 2px;
+      }
+    }
+
+    /deep/input {
+      border: 0;
+      border-bottom: 0.01rem solid #949494;
+
+      font-size: 1rem;
+      padding-bottom: 0.5rem;
+      outline: none;
+      width: 84%;
+    }
+
+    /deep/input::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #949494;
+      opacity: 1;
+      /* Firefox */
+    }
+  }
+}

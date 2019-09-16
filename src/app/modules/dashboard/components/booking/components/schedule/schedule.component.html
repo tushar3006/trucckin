@@ -1,0 +1,29 @@
+<div class="truck-details">
+  <h1 class="lighter"> <img src="/assets/images/back.png" /> Select Date & Time</h1>
+
+  <img src="/assets/images/schedule.png" />
+
+  <form [formGroup]="scheduleForm">
+    <div>
+      <mat-form-field>
+        <input matInput
+          [matDatepicker]="datePicker"
+          placeholder="Select Date">
+        <mat-datepicker-toggle matSuffix
+          [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput
+          [ngxTimepicker]="timePicker"
+          placeholder="Select Time">
+        <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+  </form>
+
+
+
+</div>
