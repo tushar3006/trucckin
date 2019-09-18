@@ -2,14 +2,27 @@
   <h1 class="lighter"> <img src="/assets/images/back.png" /> Truck Requirement Details</h1>
 
   <h6 class="text-grey">Select type of Truck</h6>
+  <div class="trucks">
+    <div class="truck"
+      *ngFor="let truck of trucks"
+      (click)="selectTruck(truck)">
 
-  <form [formGroup]="truckDetailsForm">
+      <img *ngIf="selectedTruckId === truck.truckType"
+        id="selection"
+        src="/assets/images/icn_selection.png" />
+      <img src="truck.image"
+        alt="img" />
+      {{truck.truckName}}
+    </div>
+  </div>
+  <form [formGroup]="truckDetailsForm"
+    (submit)="onUpdateTruckDetails()">
 
     <h6 class="text-grey">Select no. of trucks required</h6>
     <div>
       <mat-form-field>
         <input matInput
-          formControlName="dropoff">
+          formControlName="quantity">
       </mat-form-field>
     </div>
     <button mat-button

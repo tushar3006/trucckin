@@ -3,11 +3,13 @@
 
   <img src="/assets/images/schedule.png" />
 
-  <form [formGroup]="scheduleForm">
+  <form [formGroup]="scheduleForm"
+    (submit)="onSelectSchedule()">
     <div>
       <mat-form-field>
         <input matInput
           [matDatepicker]="datePicker"
+          formControlName="date"
           placeholder="Select Date">
         <mat-datepicker-toggle matSuffix
           [for]="datePicker"></mat-datepicker-toggle>
@@ -18,10 +20,15 @@
       <mat-form-field>
         <input matInput
           [ngxTimepicker]="timePicker"
+          formControlName="time"
           placeholder="Select Time">
         <ngx-material-timepicker #timePicker></ngx-material-timepicker>
       </mat-form-field>
     </div>
+
+    <button mat-button
+      type="submit"
+      color="primary">Next</button>
   </form>
 
 

@@ -1,3 +1,4 @@
+import { UserService } from './../../../../services/user.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookingComponent } from './booking.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
       apiKey: 'AIzaSyC3QfF6318qTwY_RxV8VzDmSHbchVxEvwo',
       libraries: ['places']
     })
-  ]
+  ],
+  providers: [UserService]
 })
 export class BookingModule {}

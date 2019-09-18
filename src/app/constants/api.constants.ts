@@ -24,5 +24,11 @@ export const apiConstants = {
       URL: '/user/resendOtp',
       METHOD: 'post'
     }
+  },
+  USER: {
+    TRUCKS: {
+      URL: '/user/getTruck',
+      METHOD: 'post'
+    }
   }
 };

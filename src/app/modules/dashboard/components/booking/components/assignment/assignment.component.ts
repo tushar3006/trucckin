@@ -45,6 +45,7 @@ export class AssignmentComponent implements OnInit, AfterViewInit {
         this.ngZone.run(() => {
           // some details
           let place: google.maps.places.PlaceResult = autocompleteDrop.getPlace();
+          console.log(place);
           this.updateAssignment.emit({
             place,
             type: typeConst.DELIVERY,

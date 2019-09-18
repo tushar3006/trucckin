@@ -1,4 +1,41 @@
 .truck-details {
   display: flex;
   flex-direction: column;
+
+  .trucks {
+    display: flex;
+    flex-wrap: wrap;
+
+    .truck {
+      width: 9rem;
+      height: 8rem;
+      border: 1px solid rgba(0, 0, 0, 0.01);
+      margin: 0.4rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.1);
+      font-size: 0.8rem;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        height: 4rem;
+        width: 4rem;
+      }
+
+      #selection {
+        height: 1rem;
+        width: 1rem;
+      }
+
+      &:hover {
+        box-shadow: 7px 9px 10px 4px rgba(0, 0, 0, 0.1);
+        color: #ef6c00;
+      }
+    }
+
+
+  }
 }
