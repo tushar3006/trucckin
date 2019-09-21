@@ -1,20 +1,26 @@
 import { typeConst } from 'src/app/constants/type.constants';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { AgmMap, LatLngBounds } from '@agm/core';
+declare const google: any;
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss']
 })
-export class BookingComponent implements OnInit {
+export class BookingComponent implements OnInit, AfterViewInit {
+  @ViewChild('AgmMap', { static: false }) agmMap: AgmMap;
   lat = 51.678418;
   lng = 7.809007;
   public activePath = typeConst.HOME;
   public typeConst;
   public assignments = [];
+
   public markers = [];
   public polylines = [];
   public activeAssignment;
+  public mapBounds: LatLngBounds;
+  public mapInstance;
   constructor() {
     this.typeConst = typeConst;
   }
@@ -27,6 +33,15 @@ export class BookingComponent implements OnInit {
     this.assignments.push({});
     this.activeAssignment = this.assignments.length - 1;
     this.changeActivePath({ pathName: typeConst.ADD_ASSIGNMENT });
+  }
+
+  updateBounds() {
+    this.markers.forEach(marker => {
+      const tempPosition = new google.maps.LatLng(marker.lat, marker.lng);
+      this.mapBounds.extend(tempPosition);
+    });
+    console.log(this.mapInstance, this.mapBounds);
+    this.mapInstance.fitBounds(this.mapBounds);
   }
 
   updateMarkerList() {
@@ -49,6 +64,7 @@ export class BookingComponent implements OnInit {
         });
       }
     }
+    this.updateBounds();
   }
 
   afterUpdateTruckDetails(data) {
@@ -96,4 +112,20 @@ export class BookingComponent implements OnInit {
     // console.log(this.assignments);
   }
   ngOnInit() {}
+  // ngAfterViewInit() {
+  //   setTimeout(() => {
+  //     this.mapBounds = new google.maps.LatLngBounds();
+  //   }, 1000);
+  // }
+
+  ngAfterViewInit() {
+    this.agmMap.mapReady.subscribe(map => {
+      this.mapBounds = new google.maps.LatLngBounds();
+      this.mapInstance = map;
+      for (const mm of this.markers) {
+        this.mapBounds.extend(new google.maps.LatLng(mm.lat, mm.lng));
+      }
+      map.fitBounds(this.mapBounds);
+    });
+  }
 }

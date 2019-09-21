@@ -2,7 +2,7 @@ import { UserService } from './../../../../../../services/user.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { typeConst } from 'src/app/constants/type.constants';
-
+declare const google: any;
 @Component({
   selector: 'app-truck-details',
   templateUrl: './truck-details.component.html',

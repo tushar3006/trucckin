@@ -12,6 +12,7 @@ import {
 import { FormGroup, FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { typeConst } from 'src/app/constants/type.constants';
+declare const google: any;
 @Component({
   selector: 'app-assignment',
   templateUrl: './assignment.component.html',
@@ -34,17 +35,17 @@ export class AssignmentComponent implements OnInit, AfterViewInit {
   onChangeAddress(place) {}
   findAdress() {
     this.mapsApiLoader.load().then(() => {
-      let autocompletePickup = new google.maps.places.Autocomplete(
+      const autocompletePickup = new google.maps.places.Autocomplete(
         this.pickupElementRef.nativeElement
       );
-      let autocompleteDrop = new google.maps.places.Autocomplete(
+      const autocompleteDrop = new google.maps.places.Autocomplete(
         this.dropElementRef.nativeElement
       );
 
       autocompleteDrop.addListener('place_changed', () => {
         this.ngZone.run(() => {
           // some details
-          let place: google.maps.places.PlaceResult = autocompleteDrop.getPlace();
+          const place: google.maps.places.PlaceResult = autocompleteDrop.getPlace();
           console.log(place);
           this.updateAssignment.emit({
             place,
