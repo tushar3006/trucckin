@@ -12,7 +12,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   public typeConst = typeConst;
-  public activePath = typeConst.SIGNUP;
+  public activePath = typeConst.VERIFY_OTP;
   public signupForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
@@ -26,10 +26,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {}
 
-  onLogin() {
-    this.authService.signup(this.signupForm.value).then(d => {
-      this.sessionService.set('access_token', d.accessToken);
-      this.sessionService.set('user_data', d);
+  onSignup() {
+    this.authService.signup(this.signupForm.value).then(response => {
+      this.sessionService.set('access_token', response.access_token);
+      this.sessionService.set('user_data', response);
       this.setActivePath(typeConst.VERIFY_OTP);
     });
   }

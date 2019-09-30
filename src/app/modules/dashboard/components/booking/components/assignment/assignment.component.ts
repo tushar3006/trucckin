@@ -25,6 +25,7 @@ export class AssignmentComponent implements OnInit, AfterViewInit {
   });
 
   @Output() updateAssignment = new EventEmitter();
+  @Output() exitAddAssignment = new EventEmitter();
   @Output() updatePath = new EventEmitter();
   @Input() assignmentIndex;
   @ViewChild('pickup', { static: false })
@@ -69,6 +70,10 @@ export class AssignmentComponent implements OnInit, AfterViewInit {
     });
   }
   ngOnInit() {}
+
+  onPressBackBtn() {
+    this.exitAddAssignment.emit();
+  }
 
   updateAddress() {
     this.updatePath.emit({ pathName: typeConst.TRUCK_DETAILS });

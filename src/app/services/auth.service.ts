@@ -29,10 +29,14 @@ export class AuthService {
       return this.apiService[apiConstants.AUTH.SIGNUP.METHOD](
         apiConstants.AUTH.SIGNUP.URL,
         signupObj
-      ).subscribe(d => {
-        console.log(d);
-        return resolve(d.data);
-      });
+      ).subscribe(
+        d => {
+          return resolve(d.data);
+        },
+        e => {
+          // if(e.responseType === 'USER_EMAIL_ALREADY_EXIST' || e.responseType === '')
+        }
+      );
     });
   }
   loginViaAccessToken(data) {

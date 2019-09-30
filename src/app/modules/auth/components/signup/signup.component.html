@@ -12,7 +12,7 @@
       *ngIf="typeConst.SIGNUP === activePath">
 
       <form [formGroup]="signupForm"
-        (ngSubmit)="onLogin()">
+        (ngSubmit)="onSignup()">
         <mat-form-field>
           <input matInput
             formControlName="email"

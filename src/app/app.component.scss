@@ -49,6 +49,14 @@ body {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .fl-1 {
   flex: 1
 }
@@ -56,22 +64,22 @@ body {
 
 
 .fl-2 {
-  flex: 1
+  flex: 2
 }
 
 
 .fl-3 {
-  flex: 1
+  flex: 3
 }
 
 
 .fl-4 {
-  flex: 1
+  flex: 4
 }
 
 
 .fl-5 {
-  flex: 1
+  flex: 5
 }
 
 .light {
@@ -82,9 +90,29 @@ body {
   font-weight: 300;
 }
 
+.fnt-8 {
+  font-size: 0.8rem;
+}
+
+.fnt-9 {
+  font-size: 0.9rem;
+}
+
+.fn-10 {
+  font-size: 1rem;
+}
+
 .f-j-a-c {
   justify-content: center;
   align-items: center;
+}
+
+.f-j-s {
+  justify-content: flex-start;
+}
+
+.f-j-e {
+  justify-content: flex-end;
 }
 
 
@@ -92,9 +120,30 @@ body {
   color: #A1A0AD
 }
 
+.m-t-1 {
+  margin-top: 1rem;
+}
+
+
+.m-t-2 {
+  margin-top: 2rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
 .card {
-  width: 26rem;
-  height: 3rem;
+  // width: 26rem;
+  // height: 3rem;
   /* border: 1px solid #4C4B5E; */
   border-radius: 10px;
   // margin: 0 1rem;
@@ -106,9 +155,16 @@ body {
   box-sizing: border-box;
 }
 
-.full-width {
+.full-width,
+.width-100 {
   width: 100%;
 }
+
+.height-100,
+.full-height {
+  height: 100%;
+}
+
 
 body,
 html {

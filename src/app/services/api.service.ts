@@ -16,7 +16,7 @@ export class ApiService {
     let headers;
     if (localStorage.getItem('access_token')) {
       headers = {
-        authorization: localStorage.getItem('access_token')
+        authorization: 'Bearer ' + localStorage.getItem('access_token')
       };
     }
     // data.body['marketplace_reference_id'] = this.config.marketplaceReferenceId;

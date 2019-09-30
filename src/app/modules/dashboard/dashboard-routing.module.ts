@@ -1,3 +1,4 @@
+import { BookingsModule } from './../bookings/bookings.module';
 import { BookingModule } from './components/booking/booking.module';
 import { HomeComponent } from './../home/home.component';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,15 @@ const routes: Routes = [
     loadChildren: () =>
       import('../dashboard/components/booking/booking.module').then(
         mod => mod.BookingModule
+      )
+  },
+  {
+    path: 'my-bookings',
+    component: DashboardComponent,
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('../../modules/bookings/bookings.module').then(
+        mod => mod.BookingsModule
       )
   }
 ];

@@ -1,5 +1,6 @@
 <div class="truck-details">
-  <h1 class="lighter"> <img src="/assets/images/back.png" /> Truck Requirement Details</h1>
+  <h1 class="lighter"> <img src="/assets/images/back.png"
+      (click)="onPressBackBtn()" /> Truck Requirement Details</h1>
 
   <h6 class="text-grey">Select type of Truck</h6>
   <div class="trucks">
@@ -7,12 +8,14 @@
       *ngFor="let truck of trucks"
       (click)="selectTruck(truck)">
 
-      <img *ngIf="selectedTruckId === truck.truckType"
+      <img *ngIf="selectedTruck.truckType === truck.truckType"
         id="selection"
         src="/assets/images/icn_selection.png" />
       <img src="truck.image"
         alt="img" />
-      {{truck.truckName}}
+      <div>
+        {{truck.truckName}}
+      </div>
     </div>
   </div>
   <form [formGroup]="truckDetailsForm"

@@ -14,7 +14,29 @@ export class BookingComponent implements OnInit, AfterViewInit {
   lng = 7.809007;
   public activePath = typeConst.HOME;
   public typeConst;
-  public assignments = [];
+  public assignments = [
+    {
+      pickup: {
+        address: 'Chandigarh, India',
+        lat: 30.7333148,
+        lng: 76.7794179,
+        type: 'PICKUP'
+      },
+      dropoff: {
+        address: 'Sahibzada Ajit Singh Nagar, Punjab, India',
+        lat: 30.7046486,
+        lng: 76.71787259999996,
+        type: 'DELIVERY'
+      },
+      quantity: '12',
+      truckDetails: {
+        truckType: 11,
+        truckName: 'Container Trucks'
+      },
+      date: '2019-09-19T18:30:00.000Z',
+      time: '12:00 AM'
+    }
+  ];
 
   public markers = [];
   public polylines = [];
@@ -29,6 +51,14 @@ export class BookingComponent implements OnInit, AfterViewInit {
     this.activePath = pathName;
   }
 
+  onExit() {
+    if (this.activeAssignment) {
+      this.assignments.splice(this.activeAssignment, 1);
+      this.updateMarkerList();
+      this.changeActivePath({ pathName: typeConst.HOME });
+    }
+  }
+
   onAddAssignment() {
     this.assignments.push({});
     this.activeAssignment = this.assignments.length - 1;
@@ -36,6 +66,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
   }
 
   updateBounds() {
+    this.mapBounds = new google.maps.LatLngBounds();
     this.markers.forEach(marker => {
       const tempPosition = new google.maps.LatLng(marker.lat, marker.lng);
       this.mapBounds.extend(tempPosition);
@@ -44,8 +75,10 @@ export class BookingComponent implements OnInit, AfterViewInit {
     this.mapInstance.fitBounds(this.mapBounds);
   }
 
+  checkout() {}
+
   updateMarkerList() {
-    this.markers = [];
+    let markers = (this.markers = []);
     for (let i = 0; i < this.assignments.length; i++) {
       if (this.assignments[i].pickup) {
         this.markers.push({
@@ -64,6 +97,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
         });
       }
     }
+
     this.updateBounds();
   }
 
@@ -79,7 +113,6 @@ export class BookingComponent implements OnInit, AfterViewInit {
       ...this.assignments[this.activeAssignment],
       ...data
     };
-
     console.log(this.assignments);
   }
 
@@ -120,12 +153,9 @@ export class BookingComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.agmMap.mapReady.subscribe(map => {
-      this.mapBounds = new google.maps.LatLngBounds();
       this.mapInstance = map;
-      for (const mm of this.markers) {
-        this.mapBounds.extend(new google.maps.LatLng(mm.lat, mm.lng));
-      }
-      map.fitBounds(this.mapBounds);
+
+      this.updateMarkerList();
     });
   }
 }

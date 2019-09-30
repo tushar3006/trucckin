@@ -24,6 +24,9 @@ export class ScheduleComponent implements OnInit {
     date: new FormControl(''),
     time: new FormControl('')
   });
+  onPressBackBtn() {
+    this.updatePath.emit({ pathName: typeConst.TRUCK_DETAILS });
+  }
   onSelectSchedule() {
     this.updateSchedule.emit(this.scheduleForm.value);
     this.updatePath.emit({ pathName: typeConst.HOME });

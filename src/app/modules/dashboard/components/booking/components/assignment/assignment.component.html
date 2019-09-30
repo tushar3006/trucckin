@@ -1,19 +1,24 @@
 <div class="assignment">
-  <h1> <img src="/assets/images/back.png" /> Add assignment</h1>
+  <h1> <img src="/assets/images/back.png"
+      (click)="onPressBackBtn()" /> Add assignment</h1>
 
   <h6 class="text-grey">Where do you wish to send your shipment?</h6>
 
-  <form [formGroup]="bookingForm">
-    <div class="full-width">
-      <mat-form-field>
+  <form [formGroup]="bookingForm"
+    class="bookingForm">
+    <div class="full-width flex flex-row f-j-a-c p-relative">
+      <div class="dotted"></div>
+      <img src="/assets/images/location_black.png" />
+      <mat-form-field class="fl-1">
         <input #pickup
           matInput
           formControlName="pickup"
           placeholder="Pickup Location">
       </mat-form-field>
     </div>
-    <div class="full-width">
-      <mat-form-field>
+    <div class="full-width flex flex-row f-j-a-c m-t-2">
+      <img src="/assets/images/location_black.png" />
+      <mat-form-field class="fl-1">
         <input #dropoff
           matInput
           formControlName="dropoff"

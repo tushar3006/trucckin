@@ -1,12 +1,14 @@
 <div class="truck-details">
-  <h1 class="lighter"> <img src="/assets/images/back.png" /> Select Date & Time</h1>
+  <h1 class="lighter"> <img src="/assets/images/back.png"
+      (click)="onPressBackBtn()" /> Select Date & Time</h1>
 
   <img src="/assets/images/schedule.png" />
 
   <form [formGroup]="scheduleForm"
+    class="m-t-1"
     (submit)="onSelectSchedule()">
     <div>
-      <mat-form-field>
+      <mat-form-field class="width-100">
         <input matInput
           [matDatepicker]="datePicker"
           formControlName="date"
@@ -17,11 +19,16 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
+      <mat-form-field class="width-100 p-relative">
         <input matInput
           [ngxTimepicker]="timePicker"
           formControlName="time"
           placeholder="Select Time">
+        <span class="p-absolute"
+          style="right: 0.8rem;width: 0.3rem;">
+          <img style="width:0.8rem;height:0.8rem"
+            src="/assets/images/icn_clock.png" />
+        </span>
         <ngx-material-timepicker #timePicker></ngx-material-timepicker>
       </mat-form-field>
     </div>

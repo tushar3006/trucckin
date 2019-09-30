@@ -29,6 +29,10 @@ export const apiConstants = {
     TRUCKS: {
       URL: '/user/getTruck',
       METHOD: 'post'
+    },
+    CREATE_BOOKING: {
+      URL: '/user/createJob',
+      METHOD: 'post'
     }
   }
 };

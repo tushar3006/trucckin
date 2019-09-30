@@ -17,4 +17,15 @@ export class UserService {
       });
     });
   }
+
+  createBooking(bookingData) {
+    return new Promise((resolve, reject) => {
+      return this.apiService[apiConstants.USER.CREATE_BOOKING.METHOD](
+        apiConstants.USER.CREATE_BOOKING.URL,
+        {}
+      ).subscribe(response => {
+        resolve(response.data);
+      });
+    });
+  }
 }
